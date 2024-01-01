@@ -1,0 +1,7 @@
+.tab.current-tab{
+    background-color: rgba(219, 226, 239,0.5);
+    border-radius: 0.25rem;
+}
+.form-container-weather.active{
+    scale: 1;
+}
