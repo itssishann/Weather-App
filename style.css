@@ -1,7 +1,204 @@
-.tab.current-tab{
-    background-color: rgba(219, 226, 239,0.5);
-    border-radius: 0.25rem;
+@import url("https://fonts.googleapis.com/css2?family=Crimson+Text:wght@600&family=Open+Sans&family=Playfair+Display&display=swap");
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Crimson Text", serif;
+  font-family: "Open Sans", sans-serif;
+  font-family: "Playfair Display", serif;
 }
-.form-container-weather.active{
-    scale: 1;
+:root {
+  --colorDark1: #112d4e;
+  --colorDark2: #3f72af;
+  --colorLight1: #dbe2ef;
+  --colorLight2: #f9f7f7;
+}
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  color: var(--colorLight2);
+  background-image: linear-gradient(60deg, #112d4e 0%, #4390ca 100%);
+}
+h1 {
+  text-align: center;
+  text-transform: uppercase;
+  padding-top: 1.2rem;
+}
+.tab-container {
+  width: 85%;
+  max-width: 34.375rem;
+  display: flex;
+  margin: 0 auto;
+  margin-top: 4rem;
+  justify-content: space-between;
+}
+.tab {
+  cursor: pointer;
+  font-size: 0.875rem;
+  letter-spacing: 1.75px;
+  padding: 5px 8px;
+}
+.tab.current-tab {
+  background-color: rgb(219, 230, 235, 0.45);
+  border-radius: 0.45rem;
+}
+.weather-container {
+  margin-block: 4rem;
+}
+
+.btn {
+  all: unset;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  border-radius: 0.35rem;
+  background-color: var(--colorDark2);
+  padding: 10px 30px;
+  border-style: none;
+  margin-bottom: 0.45rem;
+}
+.btn:hover {
+  cursor: pointer;
+}
+.sub-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.grant-location-container {
+  display: none;
+}
+.grant-location-container.active {
+  display: flex;
+}
+.grant-location-container img {
+  margin-bottom: 2rem;
+}
+.grant-location-container p:first-of-type {
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+.grant-location-container p:last-of-type {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-top: 0.75rem;
+  margin-bottom: 1.75rem;
+  letter-spacing: 0.1rem;
+}
+.loading-container {
+  display: none;
+}
+.loading-container {
+  text-transform: uppercase;
+}
+.loading-container.active {
+  display: flex;
+}
+.user-info-container {
+  display: none;
+}
+.user-info-container .name {
+  display: flex;
+  align-items: center;
+  gap: 0 0.5rem;
+  margin-bottom: 1rem;
+}
+.user-info-container.active {
+  display: flex;
+}
+.user-info-container p {
+  font-size: 1.5rem;
+  font-weight: 300;
+  text-transform: capitalize;
+}
+.user-info-container img {
+  width: 90px;
+  height: 90px;
+}
+.user-info-container p[data-temp] {
+  font-size: 2.8rem;
+  font-weight: 700;
+}
+.parameter-container {
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px 20px;
+  margin-top: 2rem;
+}
+.parameter {
+  width: 30%;
+  max-width: 200px;
+  background-color: rgba(219, 230, 235, 0.45);
+  border-radius: 0.45rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px 0;
+}
+.parameter img {
+  width: 50px;
+  height: 50px;
+}
+.name :first-of-type {
+  font-size: 2rem;
+}
+.name img {
+  width: 30px;
+  height: 30px;
+}
+.parameter p:first-of-type {
+  text-transform: uppercase;
+  font-size: 1.45rem;
+  font-weight: 600;
+}
+.parameter p:last-of-type {
+  text-transform: lowercase;
+  font-weight: 200;
+  font-size: 1.45rem;
+}
+.form-container-weather {
+  display: none;
+  width: 90%;
+  max-width: 34.375rem;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  gap: 0 10px;
+  margin-bottom: 3rem;
+}
+.form-container-weather.active {
+  display: flex;
+}
+.form-container-weather input {
+  width: calc(100% - 80px);
+  all: unset;
+  background-color: rgba(219, 230, 235, 0.45);
+  height: 40px;
+  border-style: none;
+  padding: 0 20px;
+  border-radius: 0.45rem;
+}
+.form-container-weather input::placeholder {
+  color: rgba(255, 255, 255, 0.85);
+}
+.form-container-weather input:focus {
+  transition: linear 85ms;
+  outline: 3px solid rgba(255, 255, 255, 0.85);
+}
+.form-container-weather .btn {
+  padding: unset;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin-bottom: 1px;
 }
