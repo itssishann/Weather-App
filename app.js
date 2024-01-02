@@ -100,26 +100,34 @@ function showPosition(position) {
 grantAccessBTN.addEventListener("click", getLocation);
 let searchInput = document.querySelector("[data-searchInput]");
 
-searchForm.addEventListener("submit", (e) => {
-  e.preventDefault(); //default action will be not run or use like redirect to other page will not work
-const cityNameIN = searchInput.value.trim()
+searchForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const cityNameIN = searchInput.value.trim();
+
   if (cityNameIN === "") {
     return;
-  }else{
-  fetchSearchWeatherInfo(searchInput.value);
+  } else {
+    try {
+      await fetchSearchWeatherInfo(cityNameIN);
+    } catch (error) {
+      console.error("Error fetching weather for city:", error);
+    }
   }
 });
+
 async function fetchSearchWeatherInfo(city){
-loader.classList.add("active")
-userInfoContainer.classList.remove("active")
-grantAccessContainer.classList.remove("active")
-try {
-    const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityNameIN}&appid=${apiKey}`);
+  loader.classList.add("active");
+  userInfoContainer.classList.remove("active");
+  grantAccessContainer.classList.remove("active");
+
+  try {
+    const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`);
     const data = await res.json();
-    loader.classList.remove("active")
-    userInfoContainer.classList.add("active")
+    loader.classList.remove("active");
+    userInfoContainer.classList.add("active");
     renderWeatherInfo(data);
-} catch (error) {
-    console.error("Error City->",error);
-}
+  } catch (error) {
+    console.error("Error City->", error);
+  }
 }
