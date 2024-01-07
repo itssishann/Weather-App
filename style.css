@@ -183,6 +183,10 @@ h1 {
   font-family: "Crimson Text", serif;
   font-family: "Lora", serif;
 }
+.btnImg:hover{
+  transition: ease 200ms;
+  scale: 1.1;
+}
 .form-container-weather input {
   width: calc(100% - 80px);
   all: unset;
