@@ -144,7 +144,7 @@ h1 {
   width: 50px;
   height: 50px;
 }
-.weathericon{
+.weathericon {
   height: 5.25rem;
   width: 5.25rem;
 }
@@ -208,4 +208,21 @@ h1 {
   justify-content: center;
   border-radius: 50%;
   margin-bottom: 1px;
+}
+.errImg {
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+.errImg img {
+  height: 15rem;
+}
+.errImg.active {
+  display: flex;
+}
+.btnSession {
+  display: none;
+}
+.btnSession.active {
+  display: flex;
 }

@@ -28,7 +28,7 @@ function switchTab(clickedTab) {
     }
   }
 }
-// const LOCATIONURL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${apiKey}`
+
 //  getfromSessionStorage check cordinatates are available or not  in session storage
 function getfromSessionStorage() {
   const localCoordinates = sessionStorage.getItem("user-coordinates");
@@ -56,12 +56,11 @@ async function fetchUserWeatherInfo(coordinates) {
     );
     const data = await res.json();
     loader.classList.remove("active");
-    userInfoContainer.classList.add("active");
     renderWeatherInfo(data);
+    userInfoContainer.classList.add("active");
   } catch (error) {
     loader.classList.remove("active");
     console.log(`Error --> ${error}`);
-    renderErrorImage();
   }
 }
 function renderWeatherInfo(weatherInfo) {
@@ -74,7 +73,6 @@ function renderWeatherInfo(weatherInfo) {
   const cloudliness = document.querySelector("[data-cloudliness]");
   const weatherIcons = document.querySelector("[data-weatherIcon]");
   cityName.innerText = weatherInfo?.name;
-  // countryIcon.src = `https://flagcdn.com/144x108/${weatherInfo?.sys?.country.toLowerCase()}.png`;
   countryIcon.src = `https://flagcdn.com/w160/${weatherInfo?.sys?.country.toLowerCase()}.png`;
   desc.innerText = weatherInfo?.weather?.[0]?.description;
   weatherIcons.src = `https://openweathermap.org/img/w/${weatherInfo?.weather?.[0]?.icon}.png`;
@@ -114,41 +112,36 @@ searchForm.addEventListener("submit", async (e) => {
       await fetchSearchWeatherInfo(cityNameIN);
     } catch (error) {
       console.error("Error fetching weather for city:", error);
-      renderErrorImage();
     }
   }
 });
 
+const errImgDiv = document.querySelector(".errImg");
 async function fetchSearchWeatherInfo(city) {
   loader.classList.add("active");
   userInfoContainer.classList.remove("active");
   grantAccessContainer.classList.remove("active");
-
+  errImgDiv.classList.remove("active");
   try {
     const res = await fetch(
       `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
     );
     const data = await res.json();
     loader.classList.remove("active");
-    userInfoContainer.classList.add("active");
+    if (data.cod == "404") {
+      errImgDiv.classList.add("active");
+    } else {
+      errImgDiv.classList.remove("active");
+      userInfoContainer.classList.add("active");
+      renderWeatherInfo(data);
+    }
     renderWeatherInfo(data);
   } catch (error) {
-    console.error("Error City->", error);
-    renderErrorImage();
+    console.error("Error -->", error);
   }
 }
-
-function renderErrorImage() {
-  const errorImage = document.createElement("img");
-  errorImage.src = "./assets/error404.png";
-  errorImage.alt = "Error Image";
-  errorImage.classList.add("error-image", "active");
-
-  errorImage.style.position = "fixed";
-  errorImage.style.top = "50%";
-  errorImage.style.left = "50%";
-  errorImage.style.transform = "translate(-50%, -50%)";
-  errorImage.style.zIndex = "2";
-  userInfoContainer.classList.remove("active");
-  document.body.appendChild(errorImage);
+function changeSession() {
+  sessionStorage.clear();
+  alert("Location will reset after you click ok".toUpperCase());
+  location.reload(); //refresh page
 }
