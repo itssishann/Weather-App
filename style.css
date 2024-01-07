@@ -189,7 +189,8 @@ h1 {
   background-color: rgba(219, 230, 235, 0.45);
   height: 40px;
   border-style: none;
-  padding: 0 20px;
+  font-size: larger;
+  padding: 0 4.55rem;
   border-radius: 0.45rem;
 }
 .form-container-weather input::placeholder {
@@ -212,7 +213,13 @@ h1 {
 .errImg {
   display: none;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
+}
+.errImg p{
+font-size: 1.4rem;
+font-weight: 500;
+letter-spacing: 1px;
 }
 .errImg img {
   height: 15rem;
