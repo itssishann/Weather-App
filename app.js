@@ -1,9 +1,7 @@
 const userTab = document.querySelector("[data-userWeather]");
 const searchTab = document.querySelector("[data-searchWeather]");
 const userContainer = document.querySelector(".weather-container");
-const grantAccessContainer = document.querySelector(
-  ".grant-location-container"
-);
+const grantAccessContainer = document.querySelector(".grant-location-container");
 const searchForm = document.querySelector("[data-searchForm]");
 const loader = document.querySelector(".loading-container");
 const userInfoContainer = document.querySelector(".user-info-container");
@@ -116,8 +114,9 @@ searchForm.addEventListener("submit", async (e) => {
   }
 });
 
-const errImgDiv = document.querySelector(".errImg");
+
 async function fetchSearchWeatherInfo(city) {
+  const errImgDiv = document.querySelector(".errImg");
   loader.classList.add("active");
   userInfoContainer.classList.remove("active");
   grantAccessContainer.classList.remove("active");
