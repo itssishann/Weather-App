@@ -245,6 +245,14 @@ letter-spacing: 1px;
   .form-container-weather input{
     padding: 0 20px;
   }
+  *,
+*::before,
+*::after {
+  margin: 0;
+  overflow: visible;
+  padding: 0;
+  box-sizing: border-box;
+}
   .errImg img {
     height: 14rem;
   }
@@ -263,8 +271,12 @@ letter-spacing: 1px;
   }
   .parameter-container{
     flex-direction: column;
-    height: 10rem;
+    /* height: 10rem; */
     width: 100%;
+    align-items: center;
+  }
+  .wrapper{
+    height: 161vh;
   }
 }
 @keyframes upDown {
@@ -276,5 +288,5 @@ letter-spacing: 1px;
   }
   100% {
     transform: translateY(0);
-  }
+}
 }
