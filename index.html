@@ -4,81 +4,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather-App</title>
+    <meta name="description" content="Weather-App provides real-time weather updates, including temperature, wind speed, cloud cover, and humidity. Search by city or allow location access for accurate weather information using open weather api.">
+    <meta name="keywords" content="Weather, Real-time Weather, Weather Forecast, City Weather, Weather Updates">
+    <meta name="author" content="Ishan Gurjar">
+    <title>Weather App - Real-Time Weather Updates</title>
+    
     <link rel="shortcut icon" href="./assets/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <meta name="google-site-verification" content="DhEJea3KKcghT4WF6bTlN1Lb12CgB8-Oid2lv71leMQ" />
 </head>
 
 <body>
-    <div class="wrapper">
-        <h1>Weather App</h1>
+    <main class="wrapper">
+        <h1>Weather App  <br> Get Real-Time Weather Updates</h1>
         <div class="tab-container">
-            <p class="tab" data-userWeather>Your Weather</p>
-            <p class="tab" data-searchWeather>Search Weather</p>
+            <h2 class="tab" data-userWeather>Your Weather</h2>
+            <h2 class="tab" data-searchWeather>Search Weather</h2>
         </div>
-        <!-- weather-container -->
-        <div class="weather-container">
-            <!-- grantLocation Container -->
+        
+        <section class="weather-container">
             <div class="sub-container grant-location-container">
-                <img src="./assets/location.png" width="80" height="80" loading="lazy" alt="locationImg">
+                <img src="./assets/location.png" width="80" height="80" loading="lazy" alt="Location Access Icon">
                 <p>Grant Location Access</p>
                 <p>Allow Access To Get Weather Information</p>
                 <button class="btn" data-grantAccess>Grant Access</button>
             </div>
-            <!-- searchForm-container  -->
-
+            
             <form action="" class="form-container-weather" data-searchForm>
-                <input data-searchInput type="text" name="" placeholder="Enter Your City Name..." id="">
-                <button type="submit" class="btn btnImg"><img src="./assets/search.png" width="20" height="20" loading="lazy"
-                        alt="searchIconImg"></button>
+                <input data-searchInput type="text" placeholder="Enter Your City Name..." id="">
+                <button type="submit" class="btn btnImg">
+                    <img src="./assets/search.png" width="20" height="20" loading="lazy" alt="Search Icon">
+                </button>
             </form>
-            <!-- Loading Screen Container  -->
+            
             <div class="sub-container loading-container">
-                <img src="./assets/loading.gif" loading="lazy" width="150" height="150" alt="loadingImg">
+                <img src="./assets/loading.gif" loading="lazy" width="150" height="150" alt="Loading Icon">
                 <p>Loading...</p>
             </div>
 
-            <!-- show-weather-info container  -->
-            <div class="sub-container user-info-container">
-
+            <section class="sub-container user-info-container">
                 <div class="name">
                     <p onclick="changeSession()" data-cityName></p>
-                    <img data-countryIcon>
+                    <img data-countryIcon alt="Country Flag">
                 </div>
-                <p data-weatherDesc></p> <!--Weather Description -->
-                <img class="weathericon" data-weatherIcon>
-                <p data-temp></p> <!--Weather Temprature -->
-                <!-- 3-Cards Weather Details  -->
+                <p data-weatherDesc></p>
+                <img class="weathericon" data-weatherIcon alt="Weather Icon">
+                <p data-temp></p>
+                
                 <div class="parameter-container">
-                    <!-- card-1  -->
                     <div class="parameter">
-                        <img src="./assets/winds1.png">
+                        <img src="./assets/winds1.png" alt="Wind Speed Icon">
                         <p>Wind Speed</p>
                         <p data-windSpeed></p>
                     </div>
-                    <!-- card - 2  -->
+                    
                     <div class="parameter">
-                        <img src="./assets/cloud.png">
+                        <img src="./assets/cloud.png" alt="Cloudiness Icon">
                         <p>Clouds</p>
                         <p data-cloudliness></p>
                     </div>
-                    <!-- card - 3  -->
+                    
                     <div class="parameter">
-                        <img src="./assets/humidity.png">
+                        <img src="./assets/humidity.png" alt="Humidity Icon">
                         <p>Humidity</p>
                         <p data-humidity></p>
                     </div>
-
                 </div>
-            </div>
+            </section>
+
             <div class="errImg">
-                <img src="./assets/404 error lost in space-bro (1).png" alt="">
+                <img src="./assets/404 error lost in space-bro (1).png" alt="City Not Found Error Image">
                 <p>City Not Found!</p>
             </div>
-
-        </div>
-        <script src="app.js"></script>
+        </section>
+    </main>
+    
+    <script src="app.js"></script>
 </body>
 
 </html>

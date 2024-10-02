@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /city-not-found
+
+Sitemap: https://weather-app-ishan-1.vercel.app/sitemap.xml
